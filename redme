@@ -1,0 +1,71 @@
+Step 1: Setting Up Your Local Development Environment
+Create a PyCharm Project:
+
+Open PyCharm.
+Select Create New Project.
+Choose a project name and location.
+Click Create.
+Initialize a Git Repository:
+
+In PyCharm's terminal, navigate to your project directory.
+Run git init to initialize a new Git repository.
+Create a Virtual Environment (optional but recommended):
+
+In PyCharm's terminal, run python -m venv venv to create a virtual environment named venv.
+Activate the virtual environment with source venv/bin/activate on macOS/Linux or .\venv\Scripts\activate on Windows.
+Install Dependencies:
+
+Install Boto3 and pytest with pip install boto3 pytest.
+If you plan to use environment variables from a .env file locally, install python-dotenv with pip install python-dotenv.
+Create .env File:
+
+In your project root, create a .env file.
+Add your AWS credentials and any other environment variables:
+makefile
+Copy code
+AWS_ACCESS_KEY_ID=your_access_key_id_here
+AWS_SECRET_ACCESS_KEY=your_secret_access_key_here
+AWS_DEFAULT_REGION=your_aws_region_here
+Remember that this file should never be committed to version control.
+Update .gitignore:
+
+Create or edit the .gitignore file in your project root.
+Add .env to the file to ensure it's not tracked by Git.
+Step 2: Creating Python Scripts and Tests
+Write Your Python Script:
+
+Create a file named check_iam_user.py with the Boto3 code to check for the IAM user.
+Write Your Tests:
+
+Create a file named test_check_iam_user.py with your pytest tests.
+Step 3: Configuring GitHub Actions
+Create GitHub Actions Workflow File:
+In PyCharm, create a .github/workflows directory.
+Inside workflows, create a file named main.yml.
+Define the steps for setting up Python, installing dependencies, and running tests in main.yml.
+Step 4: Managing GitHub Secrets
+Add Secrets to Your GitHub Repository:
+Go to your GitHub repository online.
+Navigate to Settings > Secrets > Actions.
+Add new secrets for AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, and AWS_DEFAULT_REGION.
+Step 5: Linking Local Repository to GitHub
+Create a New Repository on GitHub:
+
+On GitHub, click New repository.
+Fill in the repository details.
+Click Create repository.
+Connect Your Local Repository to GitHub:
+
+In PyCharm's terminal, add the remote repository with git remote add origin <repository-url>.
+Push your local repository to GitHub with git push -u origin main.
+Step 6: Testing and Pushing Code
+Run Local Tests:
+
+In PyCharm, run your tests locally to ensure they pass.
+Push Changes:
+
+Use git add ., git commit, and git push to add, commit, and push your changes to GitHub.
+Verify GitHub Actions:
+
+After pushing to GitHub, check the Actions tab in your repository to see the workflow run your tests using the secrets.
+Remember to replace placeholders with your actual script names, AWS credentials, and repository details. This comprehensive setup allows you to securely develop and test your Python code that interacts with AWS, with the benefits of automated testing via GitHub Actions.
