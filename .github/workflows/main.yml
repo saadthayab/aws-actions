@@ -16,7 +16,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install boto3 pytest
+        pip install boto3 pytest python-dotenv  # Add python-dotenv here
 
     - name: Run pytest to check IAM user
       env:
