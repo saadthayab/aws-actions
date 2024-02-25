@@ -19,7 +19,7 @@ def iam_client():
     )
 
 
-def test_iam_user_exists(iam_client):
+def test_iam_user_exists_env(iam_client):
     """Test if an IAM user named 'eks-saad' exists"""
     user_name = "eks-saad"
     try:
